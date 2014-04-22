@@ -5,10 +5,12 @@
 
 makeCacheMatrix <- function(x = matrix()) 
 {
+  ## m is the variable which will retain the reverse of the matrix  
+  ## p is just a temporary variable
   m <<- NULL
   p <- x
   m <- solve(p)
-## a sample matrix is matrix(data=c(1:4,2:5,c(4,7,3,1),c(2,3,1,5)),nrow=4,ncol=4)
+  ## a sample matrix is matrix(data=c(1:4,2:5,c(4,7,3,1),c(2,3,1,5)),nrow=4,ncol=4)
 }
 
 
@@ -21,11 +23,12 @@ makeCacheMatrix <- function(x = matrix())
 cacheSolve <- function(x, ...) 
 {
   ## Return a matrix that is the inverse of 'x'
+  ## basic check to see if the variable m exists
   if(!is.null(m))
   {
     message("getting cached data")
     return(m)
   }
   r <- solve(x)
-  return(r)
+  r
 }
